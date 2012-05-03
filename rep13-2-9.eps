@@ -1,0 +1,396 @@
+%!
+%%BoundingBox: 35 489 235 825
+%%Title: rep13-2-9
+%%CreationDate: Wed Jul 12 19:50:22 2006
+%%Creator: Tgif-3.0J-p13 by William Chia-Wei Cheng (william@cs.UCLA.edu)
+
+/tgifdict 8 dict def
+tgifdict begin
+
+%%Title: eucfont.ps
+% old eucfont.ps(OCFeucfont) and new eucfont.ps(CIDeucfont) were combined.
+%  1996-09, kawamata@sra.co.jp
+% Sample Usage:
+%   Operands are only font names permitted. Don't put fontdict itself.
+% /Courier-Ryumin /Courier /Ryumin-Light-EUC-V eucfont
+
+%%Title: CIDeucfont.ps
+%%Creator: yohtaki@cis.ibaraki.ac.jp
+%%CreationDate: 1996-9-29
+%%EndComments
+%
+% <newfont> <asciifont> <kanjifont> CIDeucfont
+/CIDeucfont {
+dup findfont /WMode get 1 eq 4 1 roll % push direction info.
+12 dict begin
+  /CIDInit /ProcSet findresource begin
+  exch [ 3 1 roll ] beginrearrangedfont
+      3 -1 roll {   % pop direction info
+         /WMode 1 def	% vertical font
+         0 beginusematrix [ 0 1 -1 0 0 0.3 ] endusematrix
+      } if
+      1 usefont
+      1 beginbfrange
+         <00> <7F> <00>
+       endbfrange
+     endrearrangedfont
+  end
+end
+} def
+
+%%Title: OCFeucfont.ps
+%%Creator: shikida@cs.titech.ac.jp, ueno@cs.titech.ac.jp
+%%CreationDate: 1991-2-27
+%%EndComments
+% <font> OCFcopyfont <font>
+/OCFcopyfont {
+    dup maxlength 1 add dict begin
+    {
+	1 index /FID ne 2 index /UniqueID ne and
+	{def} {pop pop} ifelse
+    } forall
+    currentdict
+    end
+} bind def
+% <newfont> <asciifont> <kanjifont> OCFeucfont
+/OCFeucfont {
+      12 dict begin
+	dup type /nametype eq { findfont } if
+	dup /WMode known {
+	    dup /WMode get /WMode exch def
+	    WMode 1 eq {
+		[0.0 1.0 -1.0 0.0 0.0 0.30] makefont
+	    } if
+	} if
+	OCFcopyfont dup begin
+	    /Encoding Encoding
+	    FMapType dup 2 eq {
+		pop 128 128
+	    } { 5 eq {
+		256 256
+	    } {
+		/compositefont errordict /invalidfont get exec
+	    } ifelse
+	    } ifelse
+	    getinterval def
+	end
+	/kanjifont exch definefont
+	exch
+
+	dup type /nametype eq { findfont } if
+	exch
+
+	/FDepVector [ 4 2 roll ] def
+	/FontType 0 def
+	/FMapType 4 def
+	/FontMatrix matrix def
+	/Encoding [ 0 1 ] def
+	/FontBBox {0 0 0 0} def
+	dup /FontName exch def
+	currentdict
+    end
+    definefont pop
+} def
+
+% <newfont> <asciifont> <kanjifont> eucfont
+/eucfont {
+	dup findfont
+	/FMapType get 9 eq
+		{ CIDeucfont}
+		{ OCFeucfont} ifelse
+} def
+/tgifarrowtipdict 8 dict def
+tgifarrowtipdict /mtrx matrix put
+
+/tgifarrowtip
+ { tgifarrowtipdict begin
+      /dy exch def
+      /dx exch def
+      /h exch def
+      /w exch def
+      /y exch def
+      /x exch def
+      /savematrix mtrx currentmatrix def
+      x y translate
+      dy dx atan rotate
+      0 0 moveto
+      w neg h lineto
+      w neg h neg lineto
+      savematrix setmatrix
+   end
+ } def
+
+end
+
+%%PageBoundingBox: 35 489 235 825
+tgifdict begin
+/tgifsavedpage save def
+
+1 setmiterlimit
+1 setlinewidth
+
+0 setgray
+
+72 0 mul 72 11.70 mul translate
+72 128 div 100.000 mul 100 div dup neg scale
+
+gsave
+
+/tgiforigctm matrix currentmatrix def
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         144 360 moveto 368 360 lineto 368 424 lineto 144 424 lineto
+      closepath
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H /Courier /Ryumin-Light-EUC-H eucfont
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      247 390 moveto ( ) show
+   grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      157 390 moveto (\260\314\303\326\245\321\245\351\245\341\241\274\245\277\244\316\306\342\315\306\244\362\245\267) show
+      157 407 moveto (\245\325\245\310) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         144 280 moveto 368 280 lineto 368 344 lineto 144 344 lineto
+      closepath
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      157 318 moveto (\260\314\303\326\245\321\245\351\245\341\241\274\245\277$1\244\362\311\275\274\250) show
+   grestore
+
+% BOX
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         160 496 moveto 352 496 lineto 352 560 lineto 160 560 lineto
+      closepath
+      stroke
+   grestore
+grestore
+
+% BOX
+gsave
+   240 112 translate
+   [0.832 0.533 -0.832 0.533 16 0] concat
+   240 neg 112 neg translate
+0 setgray
+gsave
+   10 setmiterlimit
+   gsave
+      newpath
+         240 112 moveto 368 112 lineto 368 240 lineto 240 240 lineto
+      closepath
+      tgiforigctm setmatrix
+      stroke
+   grestore
+grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      168 178 moveto (\260\314\303\326\245\321\245\351\245\341\241\274\245\277$1\244\317\312\270) show
+      168 195 moveto (\273\372\316\363end\260\312\263\260\244\307\244\242\244\353\244\253\241\251) show
+   grestore
+
+% RCBOX
+0 setgray
+gsave
+   gsave
+      newpath
+         336 576 moveto
+         352 576 352 624 16 arcto 4 {pop} repeat
+         352 608 lineto
+         352 624 160 624 16 arcto 4 {pop} repeat
+         176 624 lineto
+         160 624 160 576 16 arcto 4 {pop} repeat
+         160 592 lineto
+         160 576 352 576 16 arcto 4 {pop} repeat
+      closepath
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      240 606 moveto (\275\252\316\273) show
+   grestore
+
+% RCBOX
+0 setgray
+gsave
+   gsave
+      newpath
+         336 32 moveto
+         352 32 352 80 16 arcto 4 {pop} repeat
+         352 64 lineto
+         352 80 160 80 16 arcto 4 {pop} repeat
+         176 80 lineto
+         160 80 160 32 16 arcto 4 {pop} repeat
+         160 48 lineto
+         160 32 352 32 16 arcto 4 {pop} repeat
+      closepath
+      stroke
+   grestore
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      240 62 moveto (\263\253\273\317) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      256 80 moveto
+      256 112 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      256 248 moveto
+      256 280 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      256 344 moveto
+      256 360 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      256 424 moveto
+      256 448 lineto
+      64 448 lineto
+      64 96 lineto
+      256 96 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      64 96 moveto
+      256 96 lineto
+      64 96 lineto
+      0 192 atan dup cos 8.000 mul 256 exch sub
+      exch sin 8.000 mul 96 exch sub lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+gsave
+   tgiforigctm setmatrix
+   newpath
+      256 96 8.000 3.000 192 0 tgifarrowtip
+   1 setgray closepath fill
+   0 setgray
+   newpath
+      256 96 8.000 3.000 192 0 tgifarrowtip
+   closepath fill
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      272 262 moveto (yes) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      360 180 moveto
+      416 180 lineto
+      416 468 lineto
+      256 468 lineto
+      256 496 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      368 158 moveto (no) show
+   grestore
+
+% TEXT
+0 setgray
+/Courier-Ryumin-Light-EUC-H findfont [17 0 0 -17 0 0] makefont setfont
+   gsave
+      196 534 moveto ("owari"\244\310\311\275\274\250) show
+   grestore
+
+% POLY/OPEN-SPLINE
+0 setgray
+gsave
+   newpath
+      256 560 moveto
+      256 576 lineto
+   tgiforigctm setmatrix
+   1 setlinewidth
+   stroke
+grestore
+
+grestore
+tgifsavedpage restore
+end
+%MatchingCreationDate: Wed Jul 12 19:50:22 2006

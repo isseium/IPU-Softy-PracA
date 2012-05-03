@@ -1,0 +1,178 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+\usepackage{graphicx}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\part*{’É¬’¿Ü’²Ý’Âê}
+
+\addcontentsline{toc}{part}{’É¬’¿Ü’²Ý’Âê}
+
+\section{lptxt’¥¹’¥¯’¥ê’¥×’¥È}
+’¥½’¡¼’¥¹’¤ò’ÊÌ’»æ’£±’¤Ë’¼¨’¤¹’¡£
+
+\section{timetable’¥¹’¥¯’¥ê’¥×’¥È}
+’¥½’¡¼’¥¹’¤ò’°Ê’²¼’¤Ë’¼¨’¤¹’¡£
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+#!/usr/bin
+# timetable.sh
+
+if 
+  test $# -eq 0
+then
+  day_of_the_week=`date +'%A'`
+else
+  day_of_the_week=$1
+fi
+
+case $day_of_the_week
+
+in 
+  [Ss][Uu]*)
+        echo ’Æü’ÍË’Æü’¤Ï’µÙ’¤ß’¤Ç’¤¹
+        ;;
+  [Mm]*)
+        echo ’·î’ÍË’Æü’¡§’¡Ê1’¡Ë’¾ð’Êó’³Ø’´ð’ÁÃA
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê2’¡Ë’ÂÎ’°é
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê3’¡Ë’²Ê’³Ø’¤È’ÎÑ’Íý
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê4’¡Ë’¥½’¥Õ’¥È’¥¦’¥§’¥¢’¾ð’Êó’³Ø’Áí’ÏÀ        
+        ;;
+  [Tt][Uu]*)
+        echo ’²Ð’ÍË’Æü’¡§’¡Ê1’¡Ë’¥³’¥ó’¥Ô’¥å’¡¼’¥¿’¥·’¥¹’¥Æ’¥à’½ø’ÏÀ
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê2’¡Ë’±Ñ’¸ìI
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê3’¡Ë’¼Ò’²ñ’¤È’¾ð’Êó
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê4’¡Ë’¾ð’Êó’¥á’¥Ç’¥£’¥¢’Æþ’Ìç
+        ;;
+  [Ww]*)
+        echo ’¿å’ÍË’Æü’¡§’¡Ê3’¡Ë’´ð’ÁÃ’¶µ’ÍÜ’Æþ’Ìç
+        ;;
+  [Tt][Hh]*)
+        echo ’ÌÚ’ÍË’Æü’¡§’¡Ê2’¡Ë’¿·’³Ø’Ìä’Ê¬’Ìî’ÁÏ’À¸
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê3’¡Ë-’¡Ê4’¡Ë’¥×’¥í’¥°’¥é’¥ß’¥ó’¥°’¸À’¸ì’¹½’Â¤’ÏÀ
+        echo ’¡¡’¡¡’¡¡’¡¡’¡Ê5’¡Ë’¥½’¥Õ’¥È’¥¦’¥§’¥¢’±é’½¬A
+        ;;
+  [Ff]*)
+        echo ’¶â’ÍË’Æü’¡§’¡Ê1’¡Ë’¾ð’Êó’³Ø’´ð’ÁÃA
+        ;;
+  [Ss][Aa]*)
+        echo ’ÅÚ’ÍË’Æü’¤Ï’µÙ’¤ß’¤Ç’¤¹
+        ;;
+  *)
+        echo $1 ’¤Ï’ÍË’Æü’¤Ç’¤Ï’¤¢’¤ê’¤Þ’¤»’¤ó
+        ;;
+esac 
+
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\section{purge’¥¹’¥¯’¥ê’¥×’¥È}
+
+\subsection{2’¡Á7’¹Ô’ÌÜ’¤Î’Àâ’ÌÀ}
+’¤Þ’¤º’¥·’¥§’¥ë’ÊÑ’¿ôpth’¤ò’½é’´ü’²½’¤·’¤Æ’¤¤’¤ë’¡£’¼¡’¤Ë’¡¢’¤â’¤·’¼Â’¹Ô’¤Î’ºÝ’¤Ë’°ú’¿ô’¤¬’¤¢’¤ì’¤Ð’°ú’¿ô’¤Î’ÃÍ’¤ò’¤½’¤Î’¤Þ’¤Þpth’¤Ë’Âå’Æþ’¤·’¡¢’°ú’¿ô’¤¬’¤Ê’¤±’¤ì’¤Ð’¥Û’¡¼’¥à’¥Ç’¥£’¥ì’¥¯’¥È’¥ê’¤Î’¥Ñ’¥¹’¤òpth’¤Ë’Âå’Æþ’¤·’¤Æ’¤¤’¤ë’¡£’¤½’¤·’¤Æ’¡¢’ÊÑ’¿ôpth’¤Ë’³Ê’Ç¼’¤µ’¤ì’¤Æ’¤¤’¤ë’¥Ç’¡¼’¥¿’¤ò’É½’¼¨’¤·’¤Æ’¤¤’¤ë’¡£
+
+
+\subsection{’¥½’¡¼’¥¹’¥³’¡¼’¥É}
+’ÊÑ’¹¹’¸å’¤Î’¥½’¡¼’¥¹’¤È’¼Â’¹Ô’·ë’²Ì’¤ò’°Ê’²¼’¤Ë’¼¨’¤¹’¡£
+\small
+\begin{screen}
+\begin{verbatim}
+#!/bin/sh
+# purge.sh
+
+pth=
+case $# in
+        0) pth=$HOME;;
+        *) pth=$1;;
+esac
+echo $pth
+
+for file in $pth/*.log
+do
+        if test -f $file
+          then
+                rm $file
+                echo Removed : $file
+        fi
+done
+\end{verbatim}
+\end{screen}
+
+\subsection{’¼Â’¹Ô’¥³’¡¼’¥É}
+\begin{screen}
+\begin{verbatim}
+$ purge.sh TMP
+TMP
+Removed : ./TMP/report10.log
+Removed : ./TMP/report11.log
+Removed : ./TMP/report12.log
+Removed : ./TMP/report13.log
+Removed : ./TMP/report2.log
+Removed : ./TMP/report3.log
+Removed : ./TMP/report4.log
+Removed : ./TMP/report5.log
+Removed : ./TMP/report6.log
+Removed : ./TMP/report7.log
+Removed : ./TMP/report8.log
+Removed : ./TMP/report9.log
+\end{verbatim}
+\end{screen}
+
+\newpage
+
+\setcounter{section}{0}
+
+\normalsize
+\addcontentsline{toc}{part}{’¼«’Í³’²Ý’Âê}
+
+\part*{’¼«’Í³’²Ý’Âê}
+
+\section{’½ª’Î»’¥¹’¥Æ’¡¼’¥¿’¥¹}
+’¤½’¤â’¤½’¤âif’Ê¸’¤Î’¾ò’·ï’¼°’¤Ï’¡¢’¿¿(0)’¤Þ’¤¿’¤Ï’µ¶(0’°Ê’³°)’¤ò’È½’Äê’¤·’¤Æ’¤¤’¤ë’¤¿’¤á’É¬’¤º’¤·’¤âtest’Ê¸’¤ò’¾ò’·ï’¼°’¤Ë’»È’¤¦’É¬’Í×’¤Ï’¤Ê’¤¤’¡£UNIX’¤Î’¥³’¥Þ’¥ó’¥É’¤Ï’¡¢’½ª’Î»’¥¹’¥Æ’¡¼’¥¿’¥¹’¤È’¤¤’¤¦’Ìó’Â«’»ö’¤¬’¤¢’¤ê’¡¢’Àµ’¾ï’½ª’Î»’¤·’¤¿’¾ì’¹ç’¤Ï0’¡¢’°Û’¾ï’½ª’Î»’¤·’¤¿’¾ì’¹ç’¤Ï0’°Ê’³°’¤Î’ÃÍ’¤ò’ÊÖ’¤¹’¡£’¤¹’¤Ê’¤ï’¤Á’¡¢grep’¥³’¥Þ’¥ó’¥É’¤¬’Àµ’¾ï’½ª’Î»’¡Ê’»Ø’Äê’¤·’¤¿’Ê¸’»ú’Îó’¤¬’Ãê’½Ð’¤µ’¤ì’¤ë’¡Ë’¤·’¤¿’¾ì’¹ç’¤Ï’¿¿’¡¢’°Û’¾ï’½ª’Î»’¡Ê’»Ø’Äê’¤·’¤¿’Ê¸’»ú’Îó’¤¬’Ãê’½Ð’¤µ’¤ì’¤Ê’¤«’¤Ã’¤¿’¡Ë’¤·’¤¿’¾ì’¹ç’¤Ï’µ¶’¤Î’È½’Äê’¤È’¤Ê’¤ë’¡£’¤³’¤ì’¤é’¤Î’¤³’¤È’¤«’¤é’¤³’¤Î’¥·’¥§’¥ë’¥¹’¥¯’¥ê’¥×’¥È’¤Ï’Àµ’¾ï’¤Ë’Æ°’ºî’¤¹’¤ë’¡£
+
+\section{’¥Õ’¥í’¡¼’¥Á’¥ã’¡¼’¥È}
+’±é’½¬8’¡Á10’¤Î’¥×’¥í’¥°’¥é’¥à’¤Î’¥Õ’¥í’¡¼’¥Á’¥ã’¡¼’¥È’¤ò’¿Þ~\ref{fig:ex8}’¡¢’¿Þ~\ref{fig:ex9}’¡¢’¿Þ~\ref{fig:ex10}’¤Ë’¤½’¤ì’¤¾’¤ì’¼¨’¤¹’¡£
+
+\begin{figure}[!h]
+\begin{center}
+\scalebox{.7}{\includegraphics{rep13-2-8.eps}}
+\caption{’±é’½¬8’¤Î’¥Õ’¥í’¡¼’¥Á’¥ã’¡¼’¥È}
+\label{fig:ex8}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\scalebox{.7}{\includegraphics{rep13-2-9.eps}}
+\caption{’±é’½¬9’¤Î’¥Õ’¥í’¡¼’¥Á’¥ã’¡¼’¥È}
+\label{fig:ex9}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\scalebox{.7}{\includegraphics{rep13-2-10.eps}}
+\caption{’±é’½¬10’¤Î’¥Õ’¥í’¡¼’¥Á’¥ã’¡¼’¥È}
+\label{fig:ex10}
+\end{center}
+\end{figure}
+
+\newpage
+
+\section{mycal’¥¹’¥¯’¥ê’¥×’¥È}
+’¥½’¡¼’¥¹’¤ò’ÊÌ’»æ’£²’¤Ë’¼¨’¤¹’¡£
+
+\end{document}
+
+\begin{screen}
+\begin{verbatim}
+
+\end{verbatim}
+\end{screen}

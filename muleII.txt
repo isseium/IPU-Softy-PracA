@@ -1,0 +1,5 @@
+ID:			91310000
+NAME:			Taro Yamada
+LAB:			Yamada
+MAJOR:			English
+E-MAIL:			taro@iwate-pu.ac.jp

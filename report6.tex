@@ -1,0 +1,279 @@
+
+\documentclass[a4j]{jarticle}
+\usepackage{ascmac}
+
+\begin{document}
+
+\section{表紙の作成}
+ソースを以下に示す。
+\begin{screen}
+\begin{verbatim}
+\documentclass[a4j]{jarticle}
+\pagestyle{empty}
+\begin{document}
+\begin{center}
+\vspace*{23mm}
+\Huge
+\textbf{ 平成18年度 ソフトウェア演習A } \vspace{5mm}
+\textbf{第 \underline{ 6 } 回レポート} \vspace{25mm}
+\begin{tabular}{ll} \vspace{3mm}
+ 学籍番号&: \underline{0312006063 \hspace{24.88pt} \hspace{24.88pt}}\\
+\vspace{3mm} 講座名&: \underline{分散システム学\hspace{12.44pt}} \\
+氏名&: \underline{小松\hspace{24.88pt}一星 \hspace{24.88pt}\hspace{24.88pt}}
+\end{tabular}
+\vspace{20mm}
+
+\LARGE
+■レポート履歴■\\
+\begin{tabular}{|l|r|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{項目}} &  \multicolumn{1}{|c|}{ \textbf{日付}}
+ & \multicolumn{1}{|c|}{\textbf{合否}}\\
+\hline \hline
+レポート締め切り & \hspace{17.28pt} ５月 ３１日 & \\
+\hline
+レポート提出日 & ５月 ３０日& \\
+\hline
+レポート確認 & 月 \hspace{17.28pt}\hspace{17.28pt}日 & □合 / □否\\
+\hline \hline
+再レポート締め切り & ６月 \hspace{17.28pt}７日 & \\
+\hline
+再レポート提出日 & 月 \hspace{17.28pt}\hspace{17.28pt}日 & \\
+\hline
+再レポート確認 & 月 \hspace{17.28pt}\hspace{17.28pt}日 & □合 / □否\\
+\hline
+\multicolumn{3}{r}{プレチェック：\underline{\textbf{\hspace{3cm}}}}
+\end{tabular}
+\end{center}
+\end{document}
+\end{verbatim}
+\end{screen}
+
+\section{\LaTeX 文書の作成１}
+
+指示された文章を以下に示す。
+
+\begin{screen}
+\ \ LaTeX を用いて文章を作成する手順は以下の通り。\\
+1. muleなどのエディタで文章を入力する。\\
+2. platexコマンドを利用してDVIファイルを作成する。\\
+3. 整形された文章をxdviコマンドでプレビューしてみる。\\
+4. dvipsまたはdvi2psコマンドを利用してPSファイルを作成する。\\
+5. lprコマンドで印刷する。
+\end{screen}
+
+ソースを以下に示す。
+
+\begin{screen}
+\begin{verbatim}
+LaTeX を用いて文章を作成する手順は以下の通り。\\
+1. muleなどのエディタで文章を入力する。\\
+2. platexコマンドを利用してDVIファイルを作成する。\\
+3. 整形された文章をxdviコマンドでプレビューしてみる。\\
+4. dvipsまたはdvi2psコマンドを利用してPSファイルを作成する。\\
+5. lprコマンドで印刷する。
+\end{verbatim}
+\end{screen}
+
+\section{\LaTeX 文書の作成２}
+
+指示された文章を以下に示す。
+
+\begin{screen}
+
+\begin{flushleft}
+（左詰めの環境）
+\end{flushleft}
+
+\begin{center}
+（中央寄せの環境）
+
+少し大きな文字を四角で囲むと\large{\fbox{このようになる。}}
+\end{center}
+
+
+\begin{flushright}
+（右詰めの環境）
+\end{flushright}
+\end{screen}
+
+ソースを以下に示す。
+
+\begin{screen}
+\begin{verbatim}
+
+\begin{flushleft}
+（左詰めの環境）
+\end{flushleft}
+
+\begin{center}
+（中央寄せの環境）
+
+少し大きな文字を四角で囲むと\large{\fbox{このようになる。}}
+\end{center}
+
+\begin{flushright}
+（右詰めの環境）
+\end{flushright}
+
+\end{verbatim}
+\end{screen}
+
+\section{\LaTeX 文書の作成３}
+指示された文章を以下に示す。
+
+\begin{screen}
+\begin{flushright} 平成○年△月□日 \end{flushright}
+\begin{flushleft} 関係者各位 \end{flushleft}
+
+\begin{flushright} ソフトウェア情報学部イベント企画部 \end{flushright}
+
+\begin{center}{\large 新歓兼花見のご案内} \end{center}
+
+\ \ １年生の皆さんが入学し、そろそろ１ヶ月が経とうとしています。岩手県立大学には慣れてきましたか？大学周辺の桜の花もほころびはじめ、そろそろ満開の時期を向かえようとしています。
+
+\ \ つきましては、ソフトウェア情報学部イベント企画部では、新入生歓迎会を兼ねて花見を企画しました。皆様、ふるってご参加ください。
+
+\ \ 開催日程は、下記の通りとなっております。
+
+\begin{center} 記 \end{center}
+
+\ \ 日時：平成△年5月1日 18:00〜
+
+\ \ 場所：アリーナ裏
+
+\noindent
+以上、よろしくお願いします。
+
+\end{screen}
+
+ソースを以下に示す。
+
+\begin{screen}
+\begin{verbatim}
+\begin{flushright} 平成○年△月□日 \end{flushright}
+\begin{flushleft} 関係者各位 \end{flushleft}
+
+\begin{flushright} ソフトウェア情報学部イベント企画部 \end{flushright}
+
+\begin{center}{\large 新歓兼花見のご案内} \end{center}
+
+１年生の皆さんが入学し、そろそろ１ヶ月が経とうとしています。岩手県立大学には慣れてきましたか？大学周辺の桜の花もほころびはじめ、そろそろ満開の時期を向かえようとしています。
+
+つきましては、ソフトウェア情報学部イベント企画部では、新入生歓迎会を兼ねて花見を企画しました。皆様、ふるってご参加ください。
+
+ 開催日程は、下記の通りとなっております。
+
+\begin{center} 記 \end{center}
+
+日時：平成△年5月1日 18:00〜
+
+場所：アリーナ裏
+
+\noindent
+以上、よろしくお願いします。
+
+\end{verbatim}
+\end{screen}
+
+\section{欧文論文用クラスについて}
+欧文論文用クラスreportでの、部および章の表題の出力を以下に示す。
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+項目 & 出力\\
+\hline
+部の表題 & part \#(ギリシャ数字）  \\
+章の表題 & chapter \#（アラビア数字） \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{クラスによる出力の違い}
+\begin{tabular}{|l|p{5cm}|p{5cm}|c|}
+\hline
+クラス & 表題の出力 & ページ構成 & ページの出力場所\\
+\hline
+
+jarticle & 
+\begin{tabular}{p{4.8cm}}
+章表題を表示できない \\
+小小節表題に ``節.小節.小小節'' といった形で番号が付される。\\
+\end{tabular}
+& 長い報告書，いくつかの章(chapter)からなる文書  & 下部中央\\
+
+\hline
+
+jreport & 
+\begin{tabular}{p{4.8cm}}
+部表題を設定すると、部表題のみのページが作成される\\
+章表題を設定可能\\
+小小節表題には番号が付されない\\
+\end{tabular}
+&  長い報告書，いくつかの章(chapter)からなる文書  & 下部中央\\
+
+\hline
+
+jbook &
+\begin{tabular}{p{4.8cm}}
+部表題を設定すると、部表題のみのページが作成される
+章表題を設定可能\\
+小小節表題には番号が付されない\\
+\end{tabular}
+ & 書籍などの文書 & 上部端\\
+\hline
+\end{tabular}
+
+\section{環境}
+
+\noindent
+使用した環境：itemize環境\\
+機能：箇条書きをする
+
+実行結果を以下に示す。
+\begin{screen}
+
+\begin{itemize}
+\item あいうえお
+\item かきくけこ
+\item さしすせそ
+\end{itemize}
+
+\end{screen}
+
+ソースを以下に示す。
+\begin{screen}
+\begin{verbatim}
+\begin{itemize}
+ \item あいうえお
+ \item かきくけこ
+ \item さしすせそ
+\end{itemize}
+\end{verbatim}
+\end{screen}
+
+
+\newcommand{\shomei}{
+ソフトウェア情報学部１年\\
+小松 一星
+}
+
+\section{自作コマンドの作成と使用}
+自作コマンド \textbackslash shomei の定義を以下に示す。 
+\begin{screen}
+\begin{verbatim}
+\newcommand{\shomei}{
+ソフトウェア情報学部１年\\
+小松 一星
+}
+\end{verbatim}
+\end{screen}
+
+自作コマンドの使用
+\begin{screen}
+\shomei
+\end{screen}
+
+\end{document}
+

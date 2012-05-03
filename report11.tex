@@ -1,0 +1,181 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{リモートログイン}
+rloginコマンド、telnetコマンドのログイン手順を以下に示す。
+
+\begin{itemize}
+\item rloginのログイン手順
+\begin{enumerate}
+\item rloginコマンドを実行する。引数には、対象となるホスト名を入力する
+\item パスワードを入力する
+\item ログインが完了する
+\item exitコマンドを実行すると接続を切断する
+\end{enumerate}
+\item telnetのログイン手順
+\begin{enumerate}
+\item telnetコマンドを実行する。引数には、対象となるホスト名を入力する
+\item ユーザ名、パスワードを入力する
+\item ログインが完了する
+\item exitコマンドを実行すると接続を切断する
+\end{enumerate}
+\end{itemize}
+
+実際の利用例を以下に示す。
+\begin{screen}
+\begin{verbatim}
+[bash-505][~]$ rlogin isuxd550
+Password: 
+Last login: Thu Jun  8 21:57:47 from :0
+Sun Microsystems Inc.	SunOS 5.9	Generic	May 2002
+[g031e063@isuxd550][bash-501]$ exit
+logout
+isuxd550.edu.soft.iwate-pu.ac.jp への接続を切断しました。
+
+
+[bash-506][~]$ telnet isuxd550
+Trying 172.16.151.126...
+Connected to isuxd550.edu.soft.iwate-pu.ac.jp.
+Escape character is '^]'.
+
+
+SunOS 5.9
+
+login: g031e063
+Password: 
+Last login: Wed Jun 28 15:49:18 from isuxd551.edu.so
+Sun Microsystems Inc.   SunOS 5.9       Generic May 2002
+[g031e063@isuxd550][bash-501]$ exit
+logout
+Connection to isuxd550.edu.soft.iwate-pu.ac.jp closed by foreign host.
+
+\end{verbatim}
+\end{screen}
+
+この２つのコマンドの違いは、プロトコルが違うというである。
+また、rloginはある設定をすることでログイン時にパスワード入力の操作を省くことが可能となる。一方、telnetはUNIX以外のOSに接続することが可能であり、他のOSへログインすることも可能である。
+
+\section{ftpによるファイル転送}
+put,getコマンドはファイルを１個ずつしか転送できないが、mput,mgetコマンドはメタキャラクタやワイルドカードを利用して複数個のファイルを転送することができる。
+
+ftp.ring.gr.jpから、課題で指定されたファイルを入手する手順を以下に示す。
+\begin{enumerate}
+\item ftpコマンドで、ftp.ring.gr.jpへ接続する
+\item /pub/doc/RFCディレクトリに移動する
+\item 指定したファイルをダウンロードする(メタキャラクタやワイルドカードを使用すると便利である）
+\end{enumerate}
+
+実際の利用例を以下に示す。
+
+\begin{screen}
+\begin{verbatim}
+[bash-500][~]$ ftp ftp.ring.gr.jp
+Connected to ftp.ring.gr.jp.
+220 RING.NICT.GO.JP FTP server ready.
+Name (ftp.ring.gr.jp:g031e063): ftp
+331 Anonymous login ok, send your complete email address as your password.
+Password:
+230-
+230-         ##################################################
+230-         #     Welcome to the RingServer FTP service.     #
+230-         ##################################################
+230-
+230- Localtime [Fri Jun 30 21:04:03 2006 JST+0900]
+230- Current [3] users / Max [100] users
+230-
+230 Anonymous access granted, restrictions apply.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> cd pub/doc/RFC
+250 CWD command successful
+ftp> mget rfc1855.txt rfc204[5-9].txt
+mget rfc1855.txt? y
+200 PORT command successful
+150 Opening BINARY mode data connection for rfc1855.txt (46185 bytes)
+226 Transfer complete.
+local: rfc1855.txt remote: rfc1855.txt
+46185 bytes received in 0.084 seconds (534.37 Kbytes/s)
+mget rfc2045.txt? y
+200 PORT command successful
+\end{verbatim}
+\end{screen}
+
+\begin{screen}
+\begin{verbatim}
+150 Opening BINARY mode data connection for rfc2045.txt (72932 bytes)
+226 Transfer complete.
+local: rfc2045.txt remote: rfc2045.txt
+72932 bytes received in 0.11 seconds (621.39 Kbytes/s)
+mget rfc2046.txt? y
+200 PORT command successful
+150 Opening BINARY mode data connection for rfc2046.txt (105854 bytes)
+226 Transfer complete.
+local: rfc2046.txt remote: rfc2046.txt
+105854 bytes received in 0.11 seconds (898.96 Kbytes/s)
+mget rfc2047.txt? y
+200 PORT command successful
+150 Opening BINARY mode data connection for rfc2047.txt (33262 bytes)
+226 Transfer complete.
+local: rfc2047.txt remote: rfc2047.txt
+33262 bytes received in 0.078 seconds (417.58 Kbytes/s)
+mget rfc2048.txt? y
+200 PORT command successful
+150 Opening BINARY mode data connection for rfc2048.txt (45034 bytes)
+226 Transfer complete.
+local: rfc2048.txt remote: rfc2048.txt
+45034 bytes received in 0.078 seconds (560.99 Kbytes/s)
+mget rfc2049.txt? y
+200 PORT command successful
+150 Opening BINARY mode data connection for rfc2049.txt (51207 bytes)
+226 Transfer complete.
+local: rfc2049.txt remote: rfc2049.txt
+51207 bytes received in 0.079 seconds (631.25 Kbytes/s)
+\end{verbatim}
+\end{screen}
+
+\section{ftp,rcpコマンド}
+ftpコマンドは、指定したホストにユーザ名、パスワードを入力してログインすることでファイルを送受信することが可能である。
+それに対して、rcpコマンドはログイン作業をすることなく使用でき、cpコマンドと同様の書式でファイルのコピーを行うことができるが
+事前にリモートホスト側でホスト名、ユーザ名を指定し、リモートログインを許可する必要がある。
+
+rcpコマンドの利用手順を以下に示す。
+\begin{enumerate}
+\item リモートホスト側のホームディレクトリにリモートログインを許可するホスト名とユーザ名を記述した'.rhosts'を作成する
+\item rcp [転送するファイル] [転送先ホスト名:転送先ディレクトリとファイル名] と入力し実行する
+\end{enumerate}
+
+通常は上の方法でログイン認証作業を省略することが可能となるが、岩手県立大学の環境の場合は自分のユーザ名以外のログイン認証作業を省略することはできない。原因としては、セキュリティの関係上許可しない設定になっていると思われる。
+
+\section{イーサネットアドレス}
+イーサネットアドレスは、イーサネット機器に割り当てられている識別子であり、ネットワークの構成とは無関係であるため、イーサネットアドレスからその機器の位置を特定するのは不可能である。このことから全世界のホスト同士のデータのやりとりを行うことはできない。
+
+\section{.rhostsの安全性\cite{rhosts}}
+rloginは、接続要求した発信元のIPアドレスから、ホスト名をDNSを使って得てから、.rhostsに書かれたホスト名と照合することで相手を認証し、パスワード入力を省略している。しかし、DNSホストに侵入された場合にDNSのデータベースを書き換えられると.rhostsに書かれたホスト名を名乗ることが可能となる。
+
+\section{ネットワークに関するコマンド\cite{ping}}
+\paragraph{ping}
+ネットワーク上の指定したコンピュータにデータを送り，そのコンピュータから返信があるかどうかで，ネットワークの通信状態を調べる。
+
+\section{sshについて\cite{ssh}}
+ssh(Secure Shell)は、rlogin、およびtelnetといったコマンドと同様にネットワークを利用してリモートログインするコマンドである。rlogin、およびtelnetはネットワーク上にユーザ名やパスワードなどを平文で送信しており、他のコンピュータがネットワーク経路上でのぞき見できてしまうという問題点があったが、sshは暗号化されるためrlogin、およびtelnetなどよりは安全に通信をすることが可能となった。
+
+\begin{thebibliography}{9}
+\bibitem{rhosts}
+ 東京大学計算数学支援グループ,  計算数学のページ http://ks.ms.u-tokyo.ac.jp/97-I/0502/yamamo.html, 2006.
+\bibitem{ping}
+HWB, はいぱーワークブック http://hwb.ecc.u-tokyo.ac.jp/, 2006.
+\bibitem{ssh}
+フリー百科事典『ウィキペディア（Wikipedia）』, \\
+Secure Shell  http://ja.wikipedia.org/wiki/Secure\_Shell, 2006.
+\end{thebibliography}
+
+
+
+\end{document}

@@ -1,0 +1,504 @@
+\documentclass[a4j]{jarticle}
+\usepackage{ascmac}
+\usepackage{amsmath}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{名刺の作成}
+\begin{center}
+\fbox{
+\begin{minipage}[t][55mm]{91mm}
+\Large
+\vspace{1zh}
+\textmc{
+\textgt{岩手県立大学ソフトウェア情報学部}
+\begin{flushright}
+\begin{tabular}{rcr}
+学籍番号&:&\textsf{0312006063}\\
+講座&:&分散システム学\\
+\end{tabular}
+\end{flushright}
+{\LARGE
+\textbf{
+\begin{center}
+小松 \hspace{1zw} 一星
+\end{center}
+}}}
+
+{\large\texttt{\textit{E-mail：g031e063@edu.soft.iwate-pu.ac.jp}}}
+
+\end{minipage}
+}
+\end{center}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{center}
+\fbox{
+\begin{minipage}[t][55mm]{91mm}
+\Large
+\vspace{1zh}
+\textmc{
+\textgt{岩手県立大学ソフトウェア情報学部}
+\begin{flushright}
+\begin{tabular}{rcr}
+学籍番号&:&\textsf{0312006063}\\
+講座&:&分散システム学\\
+\end{tabular}
+\end{flushright}
+{\LARGE
+\textbf{
+\begin{center}
+小松 \hspace{1zw} 一星
+\end{center}
+}}}
+
+{\large\texttt{\textit{E-mail：g031e063@edu.soft.iwate-pu.ac.jp}}}
+
+\end{minipage}
+}
+\end{center}
+\end{verbatim}
+\end{itembox}
+
+
+
+\section{統計学における関数の定義 \cite{aoki}}
+\begin{itemize}
+\item 正規分布関数\\
+\[
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{\frac{-(x-\mu)^{2}}{2\sigma^{2}}\right\}
+\qquad
+(-\infty < x < \infty,  \sigma^{2} > 0)
+\]
+
+\item ガンマ分布関数\\
+\[
+f(x)=\frac{1}{\Gamma(\lambda)}\alpha^{\lambda} x^{\lambda-1} e^{-\alpha x}
+\qquad
+(0 < x < \infty, \lambda \ge 0)
+\]
+
+\item 三角分布関数\\
+\[
+f(x)=\left\{
+\begin{array}{ll}
+1-|x|, & (|x| \le 1)\\
+0, & (|x| > 1)\\
+\end{array}
+\right.
+\]
+
+\end{itemize}
+
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 正規分布関数\\
+\[
+f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left\{\frac{-(x-\mu)^{2}}{2\sigma^{2}}
+\right\}
+\qquad
+(-\infty < x < \infty,  \sigma^{2} > 0)
+\]
+
+\item ガンマ分布関数\\
+\[
+f(x)=\frac{1}{\Gamma(\lambda)}\alpha^{\lambda} x^{\lambda-1} e^{-\alpha x}
+\qquad
+(0 < x < \infty, \lambda \ge 0)
+\]
+
+\item 三角分布関数\\
+\[
+f(x)=\left\{
+\begin{array}{ll}
+1-|x|, & (|x| \le 1)\\
+0, & (|x| > 1)\\
+\end{array}
+\right.
+\]
+
+\end{itemize}
+\end{verbatim}
+\end{itembox}
+
+
+
+\section{三角関数\cite{yosshy}}
+\begin{itemize}
+\item 2倍角の公式\\
+
+\begin{eqnarray*}
+\sin 2\alpha & = &2\sin\theta\cos\theta\\
+\cos 2\alpha & = & \cos^{2} \theta - \sin^{2} \theta\\
+	& = & 2 \cos^{2}\theta - 1\\
+	& = & 1 - 2\sin^{2} \theta\\
+\end{eqnarray*}
+
+\newpage
+
+\item  5倍角の公式\\
+\begin{eqnarray*}
+\sin 5\theta & = & 16 \sin^{5}\theta - 20\sin^{3}\theta + 5 \sin \theta\\
+\cos 5\theta & = & 16 \cos^{5}\theta - 20\cos^{3}\theta + 5 \cos \theta\\
+\end{eqnarray*}
+
+\item $36^\circ$ の正弦、余弦\\
+\begin{eqnarray*}
+\sin 36^\circ & = & \cos 54^\circ\\
+	& = & \sqrt{\frac{5-\sqrt{5}}{8}}\\
+\cos 36^\circ & = & \sin 54^\circ\\
+	& = & \frac{\sqrt{5}+1}{4}\\
+\end{eqnarray*}
+
+\item $72^\circ$ の正弦、余弦\\
+\begin{eqnarray*}
+\sin 72^\circ & = & \sqrt{\frac{5+\sqrt{5}}{8}}\\
+\cos 72^\circ & = & \frac{\sqrt{5}-1}{4}\\
+\end{eqnarray*}
+\end{itemize}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 2倍角の公式\\
+
+\begin{eqnarray*}
+\sin 2\alpha & = &2\sin\theta\cos\theta\\
+\cos 2\alpha & = & \cos^{2} \theta - \sin^{2} \theta\\
+	& = & 2 \cos^{2}\theta - 1\\
+	& = & 1 - 2\sin^{2} \theta\\
+\end{eqnarray*}
+
+\newpage
+
+\item  5倍角の公式\\
+\begin{eqnarray*}
+\sin 5\theta & = & 16 \sin^{5}\theta - 20\sin^{3}\theta + 5 \sin \theta\\
+\cos 5\theta & = & 16 \cos^{5}\theta - 20\cos^{3}\theta + 5 \cos \theta\\
+\end{eqnarray*}
+
+\item $36^\circ$ の正弦、余弦\\
+\begin{eqnarray*}
+\sin 36^\circ & = & \cos 54^\circ\\
+	& = & \sqrt{\frac{5-\sqrt{5}}{8}}\\
+\cos 36^\circ & = & \sin 54^\circ\\
+	& = & \frac{\sqrt{5}+1}{4}\\
+\end{eqnarray*}
+
+\item $72^\circ$ の正弦、余弦\\
+\begin{eqnarray*}
+\sin 72^\circ & = & \sqrt{\frac{5+\sqrt{5}}{8}}\\
+\cos 72^\circ & = & \frac{\sqrt{5}-1}{4}\\
+\end{eqnarray*}
+\end{itemize}
+\end{verbatim}
+\end{itembox}
+
+
+\section{数学の問題１}
+\begin{itemize}
+\item 問題 １.\\
+\begin{eqnarray*}
+3x^{2}+8x-4 & = & 0\\
+\end{eqnarray*}
+解の公式より
+\begin{eqnarray*}
+x & = & \frac{-8\pm \sqrt{112}}{6}\\
+	& = & \frac{-8\pm 4\sqrt{7}}{6}\\
+	& = & \frac{-4\pm 2\sqrt{7}}{3}\\
+\end{eqnarray*}
+\item 問題 ２.
+\begin{eqnarray*}
+y' & = & \{(5x^{2} + 3)(2x^{3} -1)\}'\\
+	& = & (10x^{5} + 6x^{3} -5x^{2} -3)'\\
+	& = & 50x^{4} + 18x^{2} -10x\\
+\end{eqnarray*}
+\end{itemize}
+
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 問題 １.\\
+\begin{eqnarray*}
+3x^{2}+8x-4 & = & 0\\
+\end{eqnarray*}
+解の公式より
+\begin{eqnarray*}
+x & = & \frac{-8\pm \sqrt{112}}{6}\\
+	& = & \frac{-8\pm 4\sqrt{7}}{6}\\
+	& = & \frac{-4\pm 2\sqrt{7}}{3}\\
+\end{eqnarray*}
+\item 問題 ２.
+\begin{eqnarray*}
+y' & = & \{(5x^{2} + 3)(2x^{3} -1)\}'\\
+	& = & (10x^{5} + 6x^{3} -5x^{2} -3)'\\
+	& = & 50x^{4} + 18x^{2} -10x\\
+\end{eqnarray*}
+\end{itemize}
+\end{verbatim}
+\end{itembox}
+
+\section{\AmS -\LaTeX の機能と利用方法\cite{ams}}
+\begin{itemize}
+\item 機能\\
+\LaTeX にはない数学記号のフォントや数式の機能を提供する。\\
+\item 利用方法\\
+プリアンブルでamsmathパッケージを使う宣言を行う。
+\begin{screen}
+\textbackslash usepackage\{ amsmath \}
+\end{screen}
+\end{itemize}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 機能\\
+\LaTeX にはない数学記号のフォントや数式の機能を提供する。\\
+\item 利用方法\\
+プリアンブルでamsmathパッケージを使う宣言を行う。
+\begin{screen}
+\textbackslash usepackage\{ amsmath \}
+\end{screen}
+\end{itemize}
+\end{verbatim}
+\end{itembox}
+
+
+\section{\AmS -\LaTeX を用いた逆行列の導出}
+\begin{equation*}
+\begin{pmatrix}
+        a & b \\
+        c & d\\
+\end{pmatrix}^{-1}
+=
+\frac{1}{ad-bc}
+\begin{pmatrix}
+d & -b\\
+-c & a\\
+\end{pmatrix}
+\end{equation*}
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\section{\AmS -\LaTeX を用いた逆行列の導出}
+\begin{equation*}
+\begin{pmatrix}
+        a & b \\
+        c & d\\
+\end{pmatrix}
+=
+\begin{pmatrix}
+d & b\\
+-c & a\\
+\end{pmatrix}
+\end{equation*}
+\end{verbatim}
+\end{itembox}
+
+
+
+\section{数学の問題２}
+\begin{itemize}
+\item 問題１.\\
+\begin{eqnarray*}
+x^2-4x+4 & = & 0\\
+(x-2)^2	& = & 0\\
+\end{eqnarray*}
+ゆえに
+\begin{eqnarray*}
+ x & = & 2\\
+\end{eqnarray*}
+
+\item 問題２.\\
+\begin{eqnarray*}
+(2x^2-1)(x-1) & = & 2x^3 + 2x^2 - x - 1\\
+\end{eqnarray*}
+\end{itemize}
+
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 問題１.\\
+\begin{eqnarray*}
+x^2-4x+4 & = & 0\\
+(x-2)^2	& = & 0\\
+\end{eqnarray*}
+ゆえに
+\begin{eqnarray*}
+ x & = & 2\\
+\end{eqnarray*}
+
+\item 問題２.\\
+\begin{eqnarray*}
+(2x^2-1)(x-1) & = & 2x^3 + 2x^2 - x - 1\\
+\end{eqnarray*}
+\end{itemize}
+\end{verbatim}
+\end{itembox}
+
+
+
+\section{統計学の公式\cite{wiki}}
+\begin{itemize}
+\item 算術平均値\\
+\[
+\bar{X} = \frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\item 分散\\
+\[
+\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2
+\]
+
+\item 標準偏差\\
+\[
+SD = \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2}
+\]
+\end{itemize}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{itemize}
+\item 算術平均値\\
+\[
+\bar{X} = \frac{1}{n}\sum_{i=1}^{n}X_{i}
+\]
+
+\item 分散\\
+\[
+\sigma^2 = \frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2
+\]
+
+\item 標準偏差\\
+\[
+SD = \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(X_{i}-\bar{X})^2}
+\]
+\end{itemize}
+
+\end{verbatim}
+\end{itembox}
+
+
+
+
+\section{加法定理}
+\begin{eqnarray*}
+\sin(\alpha+\beta) & = & \sin\alpha\cos\beta+\cos\alpha\sin\beta\\
+\sin(\alpha-\beta) & = & \sin\alpha\cos\beta-\cos\alpha\sin\beta\\
+\cos(\alpha+\beta) & = & \cos\alpha\cos\beta-\sin\alpha\sin\beta\\
+\cos(\alpha-\beta) & = & \cos\alpha\cos\beta+\sin\alpha\sin\beta\\
+\tan(\alpha+\beta) & = & \frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}\\
+\tan(\alpha-\beta) & = & \frac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}\\
+\end{eqnarray*}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{eqnarray*}
+\sin(\alpha+\beta) & = & \sin\alpha\cos\beta+\cos\alpha\sin\beta\\
+\sin(\alpha-\beta) & = & \sin\alpha\cos\beta-\cos\alpha\sin\beta\\
+\cos(\alpha+\beta) & = & \cos\alpha\cos\beta-\sin\alpha\sin\beta\\
+\cos(\alpha-\beta) & = & \cos\alpha\cos\beta+\sin\alpha\sin\beta\\
+\tan(\alpha+\beta) & = & \frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}\\
+\tan(\alpha-\beta) & = & \frac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}\\
+\end{eqnarray*}
+\end{verbatim}
+\end{itembox}
+
+
+
+\section{数学の問題３}
+(a)
+\begin{eqnarray*}
+2\sin\theta-1 & = & 0\\
+\sin\theta & = & \frac{1}{2}\\
+\end{eqnarray*}
+$ここで,0\le\theta\le 180であるから$
+\begin{eqnarray*}
+\theta & = & 30^{\circ},150^{\circ}\\
+\end{eqnarray*}
+
+(b)
+\begin{eqnarray*}
+\frac{dy}{dx} & = & \{(2x^{2}-1)(x+3)\}'\\
+	& = & \{x^3+3x^2+x-3\}'\\
+	& = & 3x^2 + 6x - 1\\
+\end{eqnarray*}
+
+(c)
+\begin{eqnarray*}
+\int_{0}^{1} (x^3+1)dx & = & \left[\frac{1}{4}x^4+x\right]_{0}^{1}\\
+	& = & \left(\frac{1}{4}+1\right)\\
+	& = & \frac{5}{4}\\
+\end{eqnarray*}
+
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+(a)
+\begin{eqnarray*}
+2\sin\theta-1 & = & 0\\
+\sin\theta & = & \frac{1}{2}\\
+\end{eqnarray*}
+$ここで,0\le\theta\le 180であるから$
+\begin{eqnarray*}
+\theta & = & 30^{\circ},150^{\circ}\\
+\end{eqnarray*}
+
+(b)
+
+\begin{eqnarray*}
+\frac{dy}{dx} & = & {(2x^1-1)(x+3)}'\\
+	& = & {x^3+3x^2+x-3}'\\
+	& = & 3x^2 + 6x - 1\\
+\end{eqnarray*}
+
+(c)
+
+\begin{eqnarray*}
+\int_{0}^{1} (x^3+1)dx & = & [\frac{1}{4}x^4+x]_{0}^{1}\\
+	& = & \left(\frac{1}{4}+1\right)\\
+	& = & \frac{5}{4}\\
+\end{eqnarray*}
+\end{verbatim}
+\end{itembox}
+
+\begin{thebibliography}{9}
+\bibitem{aoki}
+Shigenobu AOKI, 統計学自習ノート索引, http://aoki2.si.gunma-u.ac.jp/lecture/lecind.html, 2004.
+\bibitem{yosshy}
+ヨッシー, ヨッシーの算数・数学の部屋, http://yosshy.sansu.org/, 2006.
+\bibitem{ams}
+渡辺尚貴, AmS-LaTeXの使い方のメモ,\\ http://www-cms.phys.s.u-tokyo.ac.jp/~naoki/SOFT/amsmath.html, 1995.
+\bibitem{wiki}
+wikipedia, フリー百科事典『ウィキペディア（Wikipedia）』, http://ja.wikipedia.org/, 2006.
+\end{thebibliography}
+
+\begin{itembox}[l]{\LaTeX のソース}
+\begin{verbatim}
+\begin{thebibliography}{9}
+\bibitem{aoki}
+Shigenobu AOKI, 統計学自習ノート索引,
+ http://aoki2.si.gunma-u.ac.jp/lecture/lecind.html, 2004.
+\bibitem{yosshy}
+ヨッシー, ヨッシーの算数・数学の部屋, http://yosshy.sansu.org/, 2006.
+\bibitem{ams}
+渡辺尚貴, AmS-LaTeXの使い方のメモ,
+ http://www-cms.phys.s.u-tokyo.ac.jp/~naoki/SOFT/amsmath.html, 1995.
+\bibitem{wiki}
+wikipedia, フリー百科事典『ウィキペディア（Wikipedia）』,
+ http://ja.wikipedia.org/, 2006.
+\end{thebibliography}
+\end{verbatim}
+\end{itembox}
+
+
+\end{document}
+

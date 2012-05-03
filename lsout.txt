@@ -1,0 +1,14 @@
+‡Œv 136
+-rw-r--r--   1 g031e063 student     2148 May  1 19:04 #report3.tex#
+-rw-r--r--   1 g031e063 student        0 May  1 19:17 lsout.txt
+-rw-r--r--   1 g031e063 student        7 May  1 18:59 minus.txt
+-rw-r--r--   1 g031e063 student     1401 May  1 16:49 report2.aux
+-rw-r--r--   1 g031e063 student    12076 May  1 16:49 report2.dvi
+-rw-r--r--   1 g031e063 student     3729 May  1 16:49 report2.log
+-rw-r--r--   1 g031e063 student     6585 Apr 25 19:42 report2.tex
+-rw-r--r--   1 g031e063 student      374 May  1 18:57 report3.aux
+-rw-r--r--   1 g031e063 student     3212 May  1 18:57 report3.dvi
+-rw-r--r--   1 g031e063 student     3686 May  1 18:57 report3.log
+-rw-r--r--   1 g031e063 student    19004 May  1 18:55 report3.ps
+-rw-r--r--   1 g031e063 student     1525 May  1 18:57 report3.tex
+-rw-r--r--   1 g031e063 student        3 May  1 16:54 report3.tex~

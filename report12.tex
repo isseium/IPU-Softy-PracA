@@ -1,0 +1,332 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{telnetによる電子メールの取得}
+
+\subsection{telnetでの操作}
+指定された操作(a)〜(d)を以下に示す。
+
+\vspace{5mm}
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\item \
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+sh-2.05$ telnet umail.iwate-pu.ac.jp 110
+Trying 172.16.16.4...
+Connected to umail.iwate-pu.ac.jp.
+Escape character is '^]'.
++OK Mirapoint POP3PROXY 3.7.4b-GA server ready
+\end{verbatim}
+\end{screen}
+
+
+\normalsize
+\vspace{5mm}
+\item \
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+USER g031e063@edu.soft.iwate-pu.ac.jp
++OK Name is a valid mailbox
+PASS *********
++OK Maildrop locked and ready
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\vspace{5mm}
+\noindent
+\item \
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+LIST
++OK scan listing follows
+1 2282
+2 37087
+3 4418
+4 2530
+5 4762
+6 3318
+7 4623
+8 2631
+9 4599
+10 3459
+11 3073
+12 2530
+13 3445
+14 2641
+15 3928
+16 1810
+.
+RETR 16
++OK 1810 octets
+Return-Path: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+Received: from svamc001.iwate-pu.ac.jp (svamc001.iwate-pu.ac.jp [172.16.16.2])
+	by svamc003.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	with ESMTP id ACW37641;
+	Tue, 4 Jul 2006 20:14:35 +0900 (JST)
+Received: from localhost (localhost [127.0.0.1])
+	by svamc001.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	id CDN25218;
+	Tue,  4 Jul 2006 20:14:35 +0900 (JST)
+Received: from svusc005.iwate-pu.ac.jp (svusc005.iwate-pu.ac.jp [210.156.40.12])
+	by svamc001.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	with ESMTP id CDN25213;
+	Tue, 4 Jul 2006 20:14:34 +0900 (JST)
+\end{verbatim}
+\end{screen}
+\begin{screen}
+\begin{verbatim}
+Received: from tgmsmttk03sc1.t.vodafone.ne.jp 
+(tgmsmttk03sc1.t.vodafone.ne.jp [210.175.1.163])
+	by svusc005.iwate-pu.ac.jp (Postfix) with ESMTP id CF5E0EA82
+	for <g031e063@edu.soft.iwate-pu.ac.jp>; Tue,  4 Jul 2006 20:14:34 +0900 (JST)
+Received: from [192.168.26.164] by tgmsmttk03sc1.t.vodafone.ne.jp with SMTP
+          id <20060704111433479.NWVH.17665@tgmsmttk03sc1.t.vodafone.ne.jp
+>
+
+          for <g031e063@edu.soft.iwate-pu.ac.jp>;
+          Tue, 4 Jul 2006 20:14:33 +0900
+From: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+To: <g031e063@edu.soft.iwate-pu.ac.jp>
+Subject: =?iso-2022-jp?B?GyRCJUYlOSVIGyhCKBskQjdvTD4bKEIp?=
+X-Priority: 3
+MIME-Version: 1.0
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20060704111433479.NWVH.17665@tgmsmttk03sc1.t.vodafone.ne.jp>
+
+ate: Tue, 4 Jul 2006 20:14:34 +0900
+Reply-To: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+X-Junkmail-Status: score=10/290, host=svamc001.iwate-pu.ac.jp
+X-Junkmail-SD-Raw: score=unknown,
+	refid=str=0001.0A090207.44AA4B85.0004,ss=1,fgs=0,
+	ip=210.175.1.163,
+	so=2006-02-11 11:31:14,
+	dmn=5.2.4/2006-05-04
+X-Mirapoint-Loop-Id: 3fc60fcca50c11bbedc79e4ac65c2487
+
+テスト(本文)
+.
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\vspace{5mm}
+\noindent
+\item \
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+quit
++OK
+Connection to umail.iwate-pu.ac.jp closed by foreign host.
+\end{verbatim}
+\end{screen}
+
+\end{enumerate}
+
+\normalsize
+\subsection{メールの経路}
+メールのヘッダ情報より
+
+[192.168.26.164] →  tgmsmttk03sc1.t.vodafone.ne.jp → svusc005.iwate-pu.ac.jp \\
+ → svamc001.iwate-pu.ac.jp → svamc003.iwate-pu.ac.jp
+
+の順に配送されている。
+
+\newpage
+
+\section{Mozillaによる記事投稿とtelnetによる受信}
+\subsection{受信手順}
+受信手順を以下に示す。
+\begin{enumerate}
+\item telnet news.iwate-pu.ac.jp 119 を実行し、INNプログラムに接続する
+\item GROUP ipu.soft.softabc を実行し、ニュースグループを選択する
+\item ARTICLE 581 を実行し、581番の記事を受信する
+\end{enumerate}
+\subsection{出力結果}
+出力結果を以下に示す。
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+sh-2.05$ telnet news.iwate-pu.ac.jp 119
+Trying 172.16.22.41...
+Connected to svusc021.iwate-pu.ac.jp.
+Escape character is '^]'.
+200 news InterNetNews NNRP server INN 2.4.1 ready (posting ok).
+GROUP ipu.soft.softabc
+211 581 1 581 ipu.soft.softabc
+ARTICLE 581
+220 581 <e8dlci$mok$1@svusc021.iwate-pu.ac.jp> article
+Path: news!not-for-mail
+From: g031e063 <g031e063@edu.soft.iwate-pu.ac.jp>
+Newsgroups: ipu.soft.softabc
+Subject: test
+Date: Tue, 04 Jul 2006 21:02:26 +0900
+Organization: Iwate Prefectural University
+Lines: 1
+Message-ID: <e8dlci$mok$1@svusc021.iwate-pu.ac.jp>
+NNTP-Posting-Host: isuxd551.edu.soft.iwate-pu.ac.jp
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Trace: svusc021.iwate-pu.ac.jp 1152014546 23316 172.16.151.127 (4 Jul 2006 12:02:26 GMT)
+X-Complaints-To: news@svusc021.iwate-pu.ac.jp
+NNTP-Posting-Date: Tue, 4 Jul 2006 12:02:26 +0000 (UTC)
+User-Agent: Mozilla/5.0 (X11; U; SunOS sun4u; ja-JP; rv:1.7.5) Gecko/20041221
+X-Accept-Language: ja, en-us, en
+Xref: news ipu.soft.softabc:581
+
+test
+.
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\section{telnetによるHTMLファイルの受信}
+\subsection{受信手順}
+\begin{enumerate}
+\item telnet www.soft.iwate-pu.ac.jp 80 を実行する
+\item GET /index.html HTTP/1.0 と入力し、リターンキーを２回押す
+\item index.htmlファイルを受信する
+\end{enumerate}
+
+\subsection{出力結果}
+\footnotesize
+\begin{screen}
+\begin{verbatim}
+sh-2.05$ telnet www.soft.iwate-pu.ac.jp 80
+Trying 172.16.164.61...
+Connected to svusc018.soft.iwate-pu.ac.jp.
+Escape character is '^]'.
+GET /index.html HTTP/1.0
+
+HTTP/1.1 200 OK
+Date: Wed, 05 Jul 2006 06:05:52 GMT
+Server: Apache/1.3.33 (Unix) PHP/3.0.14-i18n-ja mod_ssl/2.8.22 OpenSSL/0.9.7e
+Last-Modified: Tue, 20 Jun 2006 10:24:06 GMT
+ETag: "1658e-2260-4497ccc6"
+Accept-Ranges: bytes
+Content-Length: 8800
+Connection: close
+Content-Type: text/html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=shift-jis">
+  <title>岩手県立大学ソフトウェア情報学部</title>
+
+(以下省略)
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\section{ネチケット}
+ネチケットを、検索サイトgoo\cite{goo}を用いて検索し、フリー百科辞典wikipedia\cite{wiki}のページを参照した。参照ページ内にあったネチケットについての重要なマナーを以下に示す。
+\begin{itemize}
+\item 機種依存文字を使用しない
+\item （電子メールにおいては）半角カナを使用しない
+\item マルチポストをしない(荒らしに繋がる可能性大)
+\item 引用は明示して適切に行う(最悪の場合コピー＆ペーストを繰り返す荒らしと受け取られかねない)
+\item フレームを誘わない、反応しない、悪質なものは管理者に報告
+\item 個人情報を流出させたりプライバシーを侵害したりしない(名誉毀損罪など犯罪の他、民事訴訟にも訴えられる事がある)
+\item 不必要に巨大なデータを送らない 
+\end{itemize}
+
+\newpage
+
+\section{SMTP,およびPOPの認証機能の必要性}
+\label{SEC:NINSYO}
+SMTP,およびPOPを郵便局と対比させると、SMTPはポストおよび配達機能であり郵便を投函するポストや窓口には不特定多数の郵便物を匿名や偽名で投函することができる。またPOPは、郵便物が配達されたポストから取り出す機能であり、配達されてポストに入った郵便物を取り出す人はその郵便物の宛先人のみである。
+
+これらのことより、SMTPにはユーザ認証が必ずしも必要であるわけではないが、POPにはユーザ認証が必ず必要となる。
+
+しかしながら、SMTPに認証が必要ないということはメール送信を匿名や偽名で行うことができるため、スパムメールやなりすましメールの原因となっている。現在では、この問題に対応するためSMTP認証と呼ばれる機能もある。
+
+\section{NNTPのコマンド\cite{NNTP}}
+HEADコマンドは、記事のヘッダ情報を取得するコマンドである。
+
+NEXTコマンドは、記事を次に進めるコマンドであり、HEADコマンドと併用することで、記事のヘッダ情報を順に表示していくことが可能となる。
+
+\section{SPAM}
+SPAMとは、「受信者の意図を無視して、無差別かつ大量に一括して送信される、電子メールを主としたメッセージ」と述べられている\cite{wiki}。SPAMは、料金が安い、短時間で大量送信が可能といったことから、様々な商品、サービスの広告として不特定多数のメールアドレスへ配信されており現在問題となっている。このようになった原因は、第\ref{SEC:NINSYO}節で述べた通り、メールの送信には認証の必要がなく通常は送信制限がないためといったことが挙げられる。
+
+\section{telnetによる検索}
+検索の手順と検索結果の一部を以下に示す。
+\subsection{手順}
+\begin{enumerate}
+\item telnet www.google.com 80 を実行する
+\item GET \verb!/search?hl=ja&safe=off&q=software&lr= HTTP/1.0! と入力し、リターンキーを２回押す。
+\item softwareの検索結果のページを受信する
+\end{enumerate}
+\footnotesize
+\subsection{検索結果}
+\begin{screen}
+\begin{verbatim}
+sh-2.05$ telnet www.google.com 80
+Trying 66.249.89.99...
+Connected to www.l.google.com.
+Escape character is '^]'.
+GET /search?hl=ja&safe=off&q=software&lr= HTTP/1.0
+
+HTTP/1.0 200 OK
+Cache-Control: private
+Content-Type: text/html
+Set-Cookie: PREF=ID=7bb3a91214324a13:TM=1152089429:LM=1152089429:S=L_wszY_c6aOqVLzv;
+ expires=Sun, 17-Jan-2038 19:14:07 GMT; path=/; domain=.google.com
+Server: GWS/2.1
+Date: Wed, 05 Jul 2006 08:50:29 GMT
+Connection: Close
+
+<html><head><meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=Shift_JIS">
+IS"><title>software - Google 検索</title><style><!--
+div,div .j{line-height:120%}
+div,td{color:#000}
+.f{color:#6f6f6f}
+
+(以下省略）
+\end{verbatim}
+\end{screen}
+
+\normalsize
+\section{ネットを用いたアプリケーションツール}
+\subsection{メーラ}
+\begin{itemize}
+\item Microsoft Outlook Express
+\item Microsoft Outlook
+\item EdMax
+\item 秀丸メール
+\item Becky! Internet Mail
+\end{itemize}
+\subsection{ブラウザ}
+\begin{itemize}
+\item Mozilla Firefox
+\item Opera
+\item Netscape Navigator
+\item ホームページリーダー
+\end{itemize}
+
+\begin{thebibliography}{9}
+\bibitem{goo}
+NTT Resonant Inc., goo URL:http://www.goo.ne.jp/, 2006.
+\bibitem{wiki}
+wikipedia, フリー百科事典『ウィキペディア（Wikipedia）』URL: http://ja.wikipedia.org/, 2006.
+\bibitem{NNTP}
+Digital Creators Conference, 「マルチメディア・インターネット辞典」Dictionary of MultiMedia  (NNTPのページ） URL:http://www.jiten.com/dicmi/docs/n/8509s.htm, 2006.
+\end{thebibliography}
+
+
+\end{document}

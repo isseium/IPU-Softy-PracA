@@ -1,0 +1,60 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+
+\begin{document}
+
+\tableofcontents
+
+\section{リモートログイン}
+rloginコマンド、telnetコマンドのログイン手順を以下に示す。
+
+\begin{itemize}
+\item [rloginのログイン手順]
+\begin{enumurate}
+\item rloginコマンドを実行する。引数には、対象となるホスト名を入力する
+\item パスワードを入力する
+\item ログインが完了する
+\item exitコマンドを実行すると接続を切断する
+\item [telnetのログイン手順]
+\item telnetコマンドを実行する。引数には、対象となるホスト名を入力する
+\item ユーザ名、パスワードを入力する
+\item ログインが完了する
+\item exitコマンドを実行すると接続を切断する
+\end{itemize}
+
+実際の利用例を以下に示す。
+\begin{screen}
+\begin{verbatim}
+[bash-505][~]$ rlogin isuxd550
+Password: 
+Last login: Thu Jun  8 21:57:47 from :0
+Sun Microsystems Inc.	SunOS 5.9	Generic	May 2002
+[g031e063@isuxd550][bash-501]$ exit
+logout
+isuxd550.edu.soft.iwate-pu.ac.jp への接続を切断しました。
+
+
+[bash-506][~]$ telnet isuxd550
+Trying 172.16.151.126...
+Connected to isuxd550.edu.soft.iwate-pu.ac.jp.
+Escape character is '^]'.
+
+
+SunOS 5.9
+
+login: g031e063
+Password: 
+Last login: Wed Jun 28 15:49:18 from isuxd551.edu.so
+Sun Microsystems Inc.   SunOS 5.9       Generic May 2002
+[g031e063@isuxd550][bash-501]$ exit
+logout
+Connection to isuxd550.edu.soft.iwate-pu.ac.jp closed by foreign host.
+
+\end{screen}
+
+この２つのコマンドの違いは、プロンプトが違うという点である。rloginはUNIX専用コマンドであり、UNIX同士でリモートログインを行う際に便利である。
+
+telnetは、UNIX以外のOSに接続することが可能であり、他のOSへログインすることも可能である。
+
+\end{document}

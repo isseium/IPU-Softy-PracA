@@ -1,0 +1,110 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\part*{必須課題}
+
+\addcontentsline{toc}{part}{必須課題}
+
+\section{机の配置図}
+別紙１参照。
+
+\section{関数}
+グラフは別紙２参照。
+
+\begin{itembox}[l]{gnuplot 定義ファイル}
+\begin{verbatim}
+set term postscript
+
+set xlabel "X-Label"
+set ylabel "Y-Label"
+
+plot [-5:5] sin(2 * x) title "y = sin(2x)" with lines 1,\
+sin(x) title "y = sin(x)" with lines 3,\
+sin(x / 2) title "y = sin(x / 2)" with lines 5 
+\end{verbatim}
+\end{itembox}
+
+\section{EPS形式への変換、および印刷}
+\begin{itemize}
+\item 変換手順
+\begin{enumerate}
+\item bmpファイルからpbmファイルに変換する。
+\item pbmファイルからpgmファイルに変換する。
+\item pgmファイルからepsファイルに変換する。
+\end{enumerate}
+\item 印刷手順
+\begin{enumerate}
+\item 対象のepsファイルをghostviewで開いて内容を確認する。
+\item lprコマンドで対象のepsファイルを印刷する。
+\end{enumerate}
+\end{itemize}
+
+すなわち次のコマンドを実行する。
+\begin{screen}
+\$ bmptoppm picture.bmp \textbar \ pnmtopgm \textbar \ pnmtops \textgreater \ picture.eps \\
+\$ ghostview picture.eps \& \\
+\$ lpr picture.eps 
+\end{screen}
+
+印刷した画像は別紙３参照。
+
+\setcounter{section}{0}
+
+\newpage
+
+\addcontentsline{toc}{part}{自由課題}
+
+\part*{自由課題}
+
+\section{xv,gvコマンドについて}
+\begin{itemize}
+\item xv\\
+様々な画像処理を行うことができるソフトウェア。\\
+ファイル形式の変換や、画像の拡大縮小、切り抜きなどの操作が可能である。\\
+またスクリーンダンプも可能である。\\
+
+\item gimp\\
+多機能なフリーの画像処理ソフトウェアである。ブラシなどの高機能なペイントツールが多数搭載されている。また同時にたくさんのファイルを開き編集することも可能である。\\
+さらにプラグインを追加することで画像処理を行う機能を追加することも可能である。\\
+
+\end{itemize}
+
+\section{世界のインターネット利用者総数の推移のグラフ}
+定義ファイルを以下に、印刷したグラフを別紙４にそれぞれ示す。
+\begin{itembox}[l]{定義ファイル}
+\begin{verbatim}
+set term postscript
+
+set xlabel "year"
+set ylabel "user(million)"
+
+plot [1991:2003] [0:800] \
+"rep9-2.dat" title "user" with linespoints 1 1
+\end{verbatim}
+\end{itembox}
+
+\begin{itembox}[l]{データファイル（rep9-2.dat）}
+\begin{verbatim}
+1991 4
+1992 7
+1993 10
+1994 21
+1995 40
+1996 74
+1997 117
+1998 145
+1999 235
+2000 390
+2001 496
+2002 623
+2003 688
+\end{verbatim}
+\end{itembox}
+\end{document}

@@ -1,0 +1,82 @@
+script コマンドが Tue Jul 04 20:15:33 2006 で起動されました。
+sh-2.05$ telnet umail.iwate-pu.ac.jp 110
+Trying 172.16.16.4...
+Connected to umail.iwate-pu.ac.jp.
+Escape character is '^]'.
++OK Mirapoint POP3PROXY 3.7.4b-GA server ready
+USER g031e063@edu.soft.iwate-pu.ac.jp
++OK Name is a valid mailbox
+PASS *********
++OK Maildrop locked and ready
+LIST
++OK scan listing follows
+1 2282
+2 37087
+3 4418
+4 2530
+5 4762
+6 3318
+7 4623
+8 2631
+9 4599
+10 3459
+11 3073
+12 2530
+13 3445
+14 2641
+15 3928
+16 1810
+.
+RETR 16
++OK 1810 octets
+Return-Path: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+Received: from svamc001.iwate-pu.ac.jp (svamc001.iwate-pu.ac.jp [172.16.16.2])
+	by svamc003.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	with ESMTP id ACW37641;
+	Tue, 4 Jul 2006 20:14:35 +0900 (JST)
+Received: from localhost (localhost [127.0.0.1])
+	by svamc001.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	id CDN25218;
+	Tue,  4 Jul 2006 20:14:35 +0900 (JST)
+Received: from svusc005.iwate-pu.ac.jp (svusc005.iwate-pu.ac.jp [210.156.40.12])
+	by svamc001.iwate-pu.ac.jp (MOS 3.7.4b-GA)
+	with ESMTP id CDN25213;
+	Tue, 4 Jul 2006 20:14:34 +0900 (JST)
+Received: from tgmsmttk03sc1.t.vodafone.ne.jp (tgmsmttk03sc1.t.vodafone.ne.jp [210.175.1.163])
+	by svusc005.iwate-pu.ac.jp (Postfix) with ESMTP id CF5E0EA82
+	for <g031e063@edu.soft.iwate-pu.ac.jp>; Tue,  4 Jul 2006 20:14:34 +0900 (JST)
+Received: from [192.168.26.164] by tgmsmttk03sc1.t.vodafone.ne.jp with SMTP
+          id <20060704111433479.NWVH.17665@tgmsmttk03sc1.t.vodafone.ne.jp>
+          for <g031e063@edu.soft.iwate-pu.ac.jp>;
+          Tue, 4 Jul 2006 20:14:33 +0900
+From: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+To: <g031e063@edu.soft.iwate-pu.ac.jp>
+Subject: =?iso-2022-jp?B?GyRCJUYlOSVIGyhCKBskQjdvTD4bKEIp?=
+X-Priority: 3
+MIME-Version: 1.0
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20060704111433479.NWVH.17665@tgmsmttk03sc1.t.vodafone.ne.jp>
+Date: Tue, 4 Jul 2006 20:14:34 +0900
+Reply-To: <Scrt0Rndzvs.FE.SW.AD-AI@h.vodafone.ne.jp>
+X-Junkmail-Status: score=10/290, host=svamc001.iwate-pu.ac.jp
+X-Junkmail-SD-Raw: score=unknown,
+	refid=str=0001.0A090207.44AA4B85.0004,ss=1,fgs=0,
+	ip=210.175.1.163,
+	so=2006-02-11 11:31:14,
+	dmn=5.2.4/2006-05-04
+X-Mirapoint-Loop-Id: 3fc60fcca50c11bbedc79e4ac65c2487
+
+テスト(本文)
+.
+quit
++OK
+Connection to umail.iwate-pu.ac.jp closed by foreign host.
+sh-2.05$ exit
+exit
+
+script コマンドが Tue Jul 04 20:17:15 2006 で終了しました。 
+
+
+
+

@@ -1,0 +1,61 @@
+script コマンドが Wed Jul 05 15:01:54 2006 で起動されました。
+sh-2.05$ telnet news.iwate-pu.ac.jp 119
+Trying 172.16.22.41...
+Connected to svusc021.iwate-pu.ac.jp.
+Escape character is '^]'.
+200 news InterNetNews NNRP server INN 2.4.1 ready (posting ok).
+LIST ACTIVE ipu.*
+215 Newsgroups in form "group high low flags".
+ipu.circle.misc 0000000006 0000000001 y
+ipu.comp.misc 0000000002 0000000001 y
+ipu.education.misc 0000000007 0000000001 y
+ipu.mediacenter.1st-readme 0000000006 0000000001 y
+ipu.mediacenter.announce 0000000049 0000000001 y
+ipu.mediacenter.library 0000000001 0000000001 y
+ipu.misc 0000000001 0000000001 y
+ipu.net.misc 0000000006 0000000001 y
+ipu.office.announce 0000000001 0000000001 y
+ipu.rec.misc 0000000002 0000000001 y
+ipu.soft.softabc 0000000581 0000000001 y
+ipu.test 0000000012 0000000011 y
+ipu.comp.announce 0000000001 0000000001 y
+ipu.comp.unix 0000000001 0000000001 y
+ipu.comp.win 0000000001 0000000001 y
+ipu.comp.mac 0000000001 0000000001 y
+ipu.classifieds 0000000000 0000000001 y
+ipu.living 0000000005 0000000001 y
+.
+GROUP ipu.soft.softabc
+211 581 1 581 ipu.soft.softabc
+ARTICLE 581
+220 581 <e8dlci$mok$1@svusc021.iwate-pu.ac.jp> article
+Path: news!not-for-mail
+From: g031e063 <g031e063@edu.soft.iwate-pu.ac.jp>
+Newsgroups: ipu.soft.softabc
+Subject: test
+Date: Tue, 04 Jul 2006 21:02:26 +0900
+Organization: Iwate Prefectural University
+Lines: 1
+Message-ID: <e8dlci$mok$1@svusc021.iwate-pu.ac.jp>
+NNTP-Posting-Host: isuxd551.edu.soft.iwate-pu.ac.jp
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Trace: svusc021.iwate-pu.ac.jp 1152014546 23316 172.16.151.127 (4 Jul 2006 12:02:26 GMT)
+X-Complaints-To: news@svusc021.iwate-pu.ac.jp
+NNTP-Posting-Date: Tue, 4 Jul 2006 12:02:26 +0000 (UTC)
+User-Agent: Mozilla/5.0 (X11; U; SunOS sun4u; ja-JP; rv:1.7.5) Gecko/20041221
+X-Accept-Language: ja, en-us, en
+Xref: news ipu.soft.softabc:581
+
+test
+.
+quit
+205 .
+Connection to svusc021.iwate-pu.ac.jp closed by foreign host.
+sh-2.05$ exit
+
+script コマンドが Wed Jul 05 15:02:50 2006 で終了しました。 
+
+
+

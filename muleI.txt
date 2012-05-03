@@ -1,0 +1,79 @@
+ID:			0312006063
+NAME:			Issei Komatsu
+LAB:			Takata2
+MAJOR:			Department of Software and Information Science
+E-MAIL:			g031e063@edu.soft.iwate-pu.ac.jp
+
+ID:			12345671
+NAME:			Norihisa Segawa
+LAB:			Miyazaki
+MAJOR:			Department of Software and Information Science
+E-MAIL:			sega@acm.org
+
+ID:			12345672
+NAME:			Jun Murai
+LAB:			Murai
+MAJOR:			Department of Software and Information Science
+E-MAIL:			murajun@wide.ad.jp
+
+ID:			12345673
+NAME:			Masatoshi Miyazaki
+LAB:			Miyazaki
+MAJOR:			Department of Software and Information Science
+E-MAIL:			miyazaki@iwate-pu.ac.jp
+
+ID:			12345674
+NAME:			Hiroshi Ishii
+LAB:			Tangible Media Group
+MAJOR:			Department of Software and Information Science
+E-mail:			hiroshi@media.mit.edu
+
+ID:			12345675
+NAME:			Junichi Rekimoto
+LAB:			CSL
+MAJOR:			Department of Software and Information Science
+E-MAIL:			jun@sony.co.jp
+
+ID:			12345676
+NAME:			Mario Tokoro
+LAB:			CSL
+MAJOR:			Department of Software and Information Science
+E-MAIL:			mario@sony.co.jp
+
+ID:			12345677
+NAME:			Masatoshi Miyazaki
+LAB:			Nara
+MAJOR:			Department of Software and Information Science
+E-MAIL:			none
+
+ID:			12345678
+NAME:			Masatoshi Miyazaki
+LAB:			Watanabe
+MAJOR:			Department of Software and Information Science
+E-MAIL:			none
+
+ID:			91310000
+NAME:			Taro Yamada
+LAB:			Yamada
+MAJOR:			English
+E-MAIL:			taro@iwate-pu.ac.jp
+
+ID:			12345990
+NAME:			Masatoshi Miyazaki
+LAB:			Miyazaki
+MAJOR:			Department of Software and Information Science
+E-MAIL:			none
+
+ID:			12345992
+NAME:			Masatoshi Miyazaki
+LAB:			Watanabe
+MAJOR:			Department of Software and Information Science
+E-MAIL:			none
+
+
+
+ID:			12345991
+NAME:			Masatoshi Miyazaki
+LAB:			Fukuhara
+MAJOR:			Department of Software and Information Science
+E-MAIL:			none

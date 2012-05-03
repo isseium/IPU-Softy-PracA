@@ -1,0 +1,10 @@
+script コマンドが Tue Jul 04 19:27:32 2006 で起動されました。
+sh-2.05$ telnet umail.iwate-pu.ac.jp 110
+Trying 172.16.16.4...
+Connected to umail.iwate-pu.ac.jp.
+Escape character is '^]'.
++OK Mirapoint POP3PROXY 3.7.4b-GA server ready
+quit
++OK
+sh-2.05$ exit
+script コマンドが Tue Jul 04 19:28:15 2006 で終了しました。 

@@ -1,0 +1,390 @@
+\documentclass[a4j]{jarticle}
+
+\usepackage{ascmac}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\section{環境変数}
+\subsection{実行結果}
+表示された内容を以下に示す。
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+
+\item \
+\begin{screen}
+\footnotesize \begin{verbatim}
+winter
+shiken
+summer
+shiken
+winter
+shiken
+\end{verbatim} \normalsize
+\end{screen}
+
+\item \
+\begin{screen}
+(空白行が出力）
+\end{screen}
+
+\item \
+\begin{screen}
+tamesu
+\end{screen}
+
+\end{enumerate}
+
+\vspace{-1cm}
+
+\subsection{説明}
+シェル変数はそのシェルスクリプト内のみ有効であり、それぞれのシェル変数SEASONに代入された値は互いに独立し影響は受けないため、(a),(b)のような結果となった。
+
+環境変数TESTは、./variable2.shが実行される前にtamesuという値が代入されている。その後、variable2.sh内で環境変数TESTにshikenという値を代入しているため、variable2.shから呼び出されたvariable1.shの変数TESTはshikenという値を持っている。しかしながら、環境変数はシェルスクリプトが終了すると元の環境変数の値に変更されてしまうため、スクリプト終了後には、(c)のように元の値（tamesu）となっている。
+
+
+\section{エイリアスの優先順位}
+課題で示された問題を解決するには以下の方法が考えられる。
+\begin{enumerate}
+\item \yen の利用\\
+「 \yen 」をコマンド名の先頭につけて実行することで、エイリアス設定を無視する。
+
+\item サーチパスを変更\\
+bashプロファイル（.bashrc）の既定の設定では、サーチパスをカレントディレクトリを最優先しているためカレントディレクトリにあるスクリプトを実行していた。すなわちこの設定を変更し、サーチパスをlsコマンドのあるパス（\textbackslash bin）をカレントディレクトリより優先させることで問題を解決することができる。
+
+\item 絶対パスを指定\\
+lsコマンドを絶対パス（\textbackslash bin\textbackslash ls）で指定すると「ファイル一覧を表示するls」を実行することができる。
+
+\end{enumerate}
+
+\section{独自プロンプトの定義}
+プロンプトの定義、および出力結果を以下に示す。なお、シェルはbashを対象とする。
+\begin{itembox}[l]{プロンプトの定義（.bashrc内）}
+\footnotesize \begin{verbatim}
+	PS1="\[\033[0;36m\][\d][\t]$"
+	PS2="tudukete >> "
+\end{verbatim} \normalsize
+\end{itembox}
+
+\begin{itembox}[l]{出力結果}
+\footnotesize \begin{verbatim}
+[Sun Jul 16][17:57:11]$cd \
+tudukete >>
+\end{verbatim} \normalsize
+\begin{flushright}
+（文字色は水色）
+\end{flushright}
+\end{itembox}
+
+\section{独自のエイリアスの定義}
+\subsection{エイリアスの定義}
+エイリアスの定義を以下に示す。
+\begin{itembox}[l]{エイリアスの定義（.bashrc内）}
+\footnotesize \begin{verbatim}
+alias lstex="ls |grep *.tex"
+alias xdvi="xdvi -s 8 "
+alias telnet_umail="telnet umail.iwate-pu.ac.jp "
+alias cdkadai="cd /usr/local4/doc/SoftABC_2006/SoftA_PsFiles"
+\end{verbatim} \normalsize
+\end{itembox}
+
+
+\subsection{実行例}
+実行例を以下に示す。
+\begin{itembox}[l]{lstex}
+\footnotesize \begin{verbatim}
+[~]$lstex 
+tmp.tex
+\end{verbatim} \normalsize
+\end{itembox}
+
+\begin{itembox}[l]{xdvis8}
+\footnotesize \begin{verbatim}
+[~]$xdvis8 tmp.dvi
+\end{verbatim} \normalsize
+\end{itembox}
+
+\begin{itembox}[l]{telnet\underline{ }umail}
+\footnotesize \begin{verbatim}
+[~]$telnet_umail 110
+Trying 172.16.16.4...
+Connected to umail.iwate-pu.ac.jp.
+Escape character is '^]'.
+(以下省略)
+\end{verbatim} \normalsize
+\end{itembox}
+
+\begin{itembox}[l]{cdkadai}
+\footnotesize \begin{verbatim}
+[~]$cdkadai
+\end{verbatim} \normalsize
+\end{itembox}
+
+\section{cshのプロンプトの定義}
+プロンプトの定義、および出力結果を以下に示す。なお、シェルはcshを対象とする。
+\begin{itembox}[l]{プロンプトの定義（.cshrc内）}
+\footnotesize \begin{verbatim}
+set prompt="[`pwd`]%"
+\end{verbatim} \normalsize
+\end{itembox}
+
+\begin{itembox}[l]{出力結果}
+\footnotesize \begin{verbatim}
+[/home/g031e063]%
+\end{verbatim} \normalsize
+\end{itembox}
+
+
+\section{エイリアスの定義と動作}
+\subsection{エイリアスの定義（.bashrc内）}
+エイリアスの定義を以下に示す。
+\begin{screen}
+\footnotesize \begin{verbatim}
+alias rm="rm -i"
+alias mv="mv -i"
+alias cp="cp -i"
+\end{verbatim} \normalsize
+\end{screen}
+
+
+\subsection{動作}
+それぞれの動作を以下に表~\ref{tab:ioption}に示す。
+\begin{table}[!h]
+\begin{center}
+\caption{iオプションがついたときの動作}
+\label{tab:ioption}
+\begin{tabular}{l|p{4cm}}
+\hline
+コマンド名 & 動作\\
+\hline
+\hline
+rm & 削除する際に削除の確認をする\\
+mv & 移動先のファイルが既に存在する場合、上書きしてよいか確認する\\
+cp & コピー先のファイルが存在する場合、上書きしてよいか確認を求める\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\vspace{-1cm}
+
+\section{ulimitコマンド\cite{masa}}
+bashプロファイル内に
+\begin{screen}
+ulimit -c 0
+\end{screen}
+を書き加えることで、coreファイルの最大サイズを0に、すなわちcoreファイルを作成しない設定となる。
+
+\section{ヒストリ}
+「!整数」は、整数の部分が正の場合はヒストリに該当する命令を行い、負の場合は、最新のヒストリから指定した数だけさかのぼったヒストリに該当する命令を行う。
+なお、「!!」を実行すると「!-1」と同等である。
+
+\subsection{「!!」と「!-3」を実行した場合}
+「!!」と「!-3」を実行した結果を以下に示す。
+\begin{screen}
+\footnotesize \begin{verbatim}
+[~] $cd report/
+[~/report] $cd
+[~] $ls
+Mail                 SoftB                c-sample             gnuplot-sample
+（以下省略）
+[~] $!!
+ls
+Mail                 SoftB                c-sample             gnuplot-sample
+（以下省略）
+[~] $!-3
+cd
+\end{verbatim} \normalsize
+\end{screen}
+
+\section{コマンド行ログイン}
+\subsection{.bash\underline{ }profile}
+.bash\underline{ }proflieの最後に
+\begin{screen}
+\footnotesize \begin{verbatim}
+PS1="[\w]"
+\end{verbatim} \normalsize
+\end{screen}
+と書き込み、コマンド行ログインしたところプロンプトの設定が上の内容に変更されていため、.bash\underline{ }profileが実行されたと言える。
+
+\subsection{.bash\underline{ }logout}
+.bash\underline{ }logoutに
+\begin{screen}
+\footnotesize \begin{verbatim}
+echo logout > ~/logout.txt
+\end{verbatim} \normalsize
+\end{screen}
+と書き込み、コマンド行ログインをログアウトし、再度ログインしたところホームディレクトリにlogout.txtが作成されていたため、.bash\underline{ }logoutが実行されたと言える。
+
+\section{cshの.loginと.logoutの実行}
+.login ファイルはcsh起動時、.logout ファイルはcsh終了時に実行される。
+
+\section{shとcshの環境変数の設定方法の違い}
+環境変数を定義する際に、shはexportを、cshはsetenvを用いて定義する。
+
+
+\section{bashとcshのエイリアスの機能の違い}
+bashのエイリアスはシェルスクリプトの位置パラメータのように引数をもらって扱うことができないため複雑なエイリアスを定義するのは難しい。
+例として、シェルスクリプトでの
+\begin{screen}
+\begin{verbatim}
+echo abcdefg > $1.txt
+\end{verbatim}
+\end{screen}
+と同じ機能を持ったエイリアスを定義するのは難しい。
+
+（その弱点を補うために、bashには関数という機能がある）
+
+\section{suコマンド\cite{su}}
+指定されたユーザーとしてログインしなおす。
+オプションとして「-」（ハイフン）を付けておくと、ログインスクリプトも実行される（パス等が設定される）。
+
+\section{クオートの違い}
+各クオートの違いを以下にまとめる。
+\begin{itemize}
+\vspace{-3mm}
+\item シングルクオート \verb!'!\\
+シングルクオートで囲まれたものは、すべて文字列として解釈される。
+\vspace{-3mm}
+\item ダブルクォート \verb!"!\\
+シングルクォートと同様に、囲まれたものを文字列として解釈させるが、変数と「\verb!`!」（バッククオート）「\verb!$()!」によるコマンドのみ展開する。
+\vspace{-3mm}
+\item バッククォート \verb!`!\\
+バッククォートで囲まれた文字列は、（シングルクォート・ダブルクォート内でも）コマンドととして処理される。
+\end{itemize}
+
+例を以下に示す\cite{tako}。
+
+\begin{screen}
+\footnotesize \begin{verbatim}
+$ today=date
+$ echo "$today"
+date              ← 代入されたコマンドを表示する
+$ echo "$HOME"
+/home/hoge        ← 変数を展開している
+$ echo '$today'
+$today            ← 文字列を表示する
+$ echo '$HOME'
+$HOME
+$ echo `$today`
+2005年 3月 6日 日曜日 10:50:25 JST ← コマンドを実行している
+$ echo `$HOME`
+bash: $HOME: command not found   ← エラー
+$ echo $today
+date
+\end{verbatim} \normalsize
+\end{screen}
+
+
+\section{muleのプロファイル}
+\subsection{.emacsの内容}
+.emacsの内容を以下に示す。
+\begin{screen}
+\footnotesize \begin{verbatim}
+; .emacs
+; ;は注釈行
+(display-time)                       ;; Display time at mode line
+(line-number-mode t)                 ;; Show line number at mode line
+(global-set-key "\C-cg" 'goto-line) ;; "C-c g" to jump to intended line
+
+;; Set kanji-code related variables
+ (defun reset-coding-system ()
+  "Reset file, keyboard, display and process I/O code"
+  (interactive)
+  (cond ((boundp 'MULE) ;; for Mule
+         (set-default-file-coding-system *euc-japan*)
+	 (set-file-coding-system *euc-japan*)
+	 (set-display-coding-system *euc-japan*)
+	 (set-keyboard-coding-system *euc-japan*)
+	 (set-default-process-coding-system *oldjis* *oldjis*))))
+(reset-coding-system)
+
+;; c-mode
+; use spaces when indenting
+ (add-hook 'c-mode-hook '(lambda () (setq indent-tabs-mode nil)))
+
+;; seimei handan
+ (autoload 'seimei-buffer "seimei" "seimei" t)
+ (autoload 'seimei-region "seimei" "seimei" t)
+ (autoload 'seimei "seimei" "seimei" t)
+\end{verbatim} \normalsize
+\end{screen}
+
+\subsection{出力結果}
+出力結果を以下に示す。
+\begin{screen}
+\footnotesize \begin{verbatim}
+姓名判断    for NEmacs/Mule. (C) yoshinov@etl.go.jp
+					ver 2.0 (1995.3)
+***** 小松 一星 *****
+総運 21画 総合  	 独立と功名の吉数
+天運 11画 先祖運	 たくましい成長を遂げる吉数
+地運 10画 個性  	 すべてが空漠に帰する大凶数
+人運  9画 社会性	 不遇と孤独を暗示する凶数
+外運 12画 環境運	 意志薄弱で挫折する凶数
+総運+人運 19.8  天運+地運+外運 4.8  得点 24.6
+\end{verbatim} \normalsize
+\end{screen}
+
+\section{emacsの\LaTeX 入力支援ツール(YaTeX)}
+YaTeXを使用するための手順を以下に示す。\cite{YaTeX}
+\begin{enumerate}
+\item 次の内容を.emacsに追加する。
+\begin{screen}
+\footnotesize \begin{verbatim}
+;;--------------------------------------------------------------------
+;; YaTeX(野鳥) 
+;;--------------------------------------------------------------------
+;;
+;; yatex-modeを起動させる設定
+(setq auto-mode-alist
+       (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+;;
+;; パスの設定
+(setq load-path (cons (expand-file-name "YaTeXのあるパス") load-path))
+;;
+;; LaTeXコマンドの設定
+(setq dvi2-command "xdvi"
+      tex-command "platex"
+      dviprint-command-format "dvips %s | lpr"
+;;
+;; 漢字コードの設定
+;; 1 = Shift_JIS, 2 = ISO-2022-JP, 3 = EUC-JP
+      YaTeX-kanji-code 3)
+\end{verbatim} \normalsize
+\end{screen}
+なお研究室の環境の場合は、YaTeXは\verb!"/usr/local4/share/emacs/site-lisp/yatex"!にある。
+\item muleを再起動するなどを行い修正内容を反映させる。
+\item \TeX ファイルを読み込むことで、自動的にYaTeXモードとなる。
+\end{enumerate}
+
+\section{viのプロファイル}
+それぞれの行の意味を以下に示す。
+\begin{screen}
+\footnotesize \begin{verbatim}
+set showmode : 現在のモード(編集/入力)の表示
+set number : 行番号の表示
+\end{verbatim} \normalsize
+\end{screen}
+
+\begin{thebibliography}{9}
+\bibitem{masa}  msanpopo,Linux メモ \verb!URL:http://www.geocities.jp/msanpopo/linux.html!
+\bibitem{su} ひしだま, ひしだま's ホームページ \verb!URL:http://www.ne.jp/asahi/hishidama/home/tech/unix/command.html!
+\bibitem{quet} spaceforce, SUN FORCE  \\ \verb!URL:http://ultraforce.hp.infoseek.co.jp/force/force_b/bashshell/sp\_sign_quetung.htm#sq!
+\bibitem{tako} たこさば, Linux 基礎の基礎 -bash-: 変数やファイル名などの展開\\
+ \verb!URL:http://kazn.dip.jp/xoops/xf2section+article.articleid+5.htm!
+\bibitem{YaTeX} Satoru FUKUDA, YaTeX（野鳥）の飼い方 \\ \verb!URL:http://www.ccsr.u-tokyo.ac.jp/~satoru/keisanki/yatex/!
+\end{thebibliography}
+
+
+
+\end{document}
+
+
+
+
+

@@ -1,0 +1,7 @@
+script コマンドが Tue Jul 04 19:29:44 2006 で起動されました。
+sh-2.05$ telnt et d
+d: Unknown host
+sh-2.05$ r exit
+exit
+
+script コマンドが Tue Jul 04 19:30:03 2006 で終了しました。 
